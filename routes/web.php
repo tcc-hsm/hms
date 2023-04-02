@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\QuartosController;
 
 
 
@@ -36,6 +37,15 @@ Route::get('/cadastro_usuario', [UsuariosController::class, 'cadastro_usuario_ge
 
 Route::post('/cadastro_usuario', [UsuariosController::class, 'cadastro_usuario']);
 
+#endregion
+
+#region Quarto
+Route::get('/quarto/cadastro_quarto', [QuartosController::class, 'cadastro_quarto_get']);
+
+Route::post('/quarto/cadastro_quarto', [QuartosController::class, 'create']);
+
+
+Route::get('/quarto', [QuartosController::class, 'quarto']);
 
 #endregion
 

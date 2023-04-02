@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class usuarios extends Model
+class Quarto extends Model
 {
     use HasFactory;
 
     public $fillable = [
-        'email',
-        'nome',
-        'senha',
-        'perfil'
+        'valor',
+        'status'
     ];
 
-    public $table = 'db_usuarios';
-
+    public $table = 'db_quarto';
 }

@@ -6,30 +6,34 @@
 
 <br><br>  
 <center>
-<h2>Agenda</h2><br>    
-<form action="/home/index/buscar_data" method="post">@csrf<input type="date" name="data">  <input type="submit" class="btn btn-warning" value="Buscar"> </form><br><br>
+<h2>Quartos</h2><br><br>
 </center>
+<a href="/quarto/cadastro_quarto" class="btn btn-warning">Cadastrar Quarto</a><br><br>     
     <div class="table">
     <table class="table table-bordered table-striped table-hover" name="table" id="id-tabela"> <!-- Aqui vai ID da tabela -->
         <thead class="table-dark">
-                <th scope='col'>data</th>
-                <th scope='col'>Nome</th>
-                <th scope='col'>Horario</th>                
-                <th scope='col'>Status</th>                              
-                <th scope='col'>Número Quarto</th>                              
-                
+                <th scope='col'>Número Quarto</th>
+                <th scope='col'>Status</th>
+                <th scope='col'>Valor</th>                
+                <th scope='col'>Criado</th>                              
+                <th scope='col'>Editar</th>                              
         </thead>
         <tbody>
             
             <!-- linhas da minha tabela -> gastos  -->
             <tr>
-                @foreach($agenda as $agenda) 
-                <td>{{$agenda->data}}</td>
-                <td>{{$agenda->nome}}</td>
-                <td>{{$agenda->hora}}:{{$agenda->minuto}}</td>
-                <td>{{$agenda->status}}</td>
-                <td>{{$agenda->id_quarto}}</td>
-
+                @foreach($db as $db) 
+                <td>{{$db->id}}</td>
+                <td>
+                @if ($db->status === '1')
+                 Ativo
+                @else
+                Inativo
+                @endif
+                </td>
+                <td>{{$db->valor}}</td>
+                <td>{{$db->created_at}}</td>
+                <td><a href="/desenvolvimento" class="btn btn-warning">Editar</a></td>
                 </td>
                <!-- @endeach-->
             </tr>

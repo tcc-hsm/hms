@@ -28,7 +28,7 @@
 
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        AGENDA
+                        Agenda
                       </a>
                       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="/desenvolvimento">Reservar Horário</a></li>                        
@@ -42,7 +42,7 @@
                       </a>
                       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="/desenvolvimento">Usuário</a></li>
-                        <li><a class="dropdown-item" href="/desenvolvimento">Quarto</a></li>                        
+                        <li><a class="dropdown-item" href="/quarto">Quarto</a></li>                        
                       </ul>
                     </li>
 

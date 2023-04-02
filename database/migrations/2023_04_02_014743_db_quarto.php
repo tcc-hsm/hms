@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('db_quarto', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('valor');
-            $table->string('status');
+            $table->string('ativo');
             $table->string('updated_at');
             $table->string('created_at');
 
