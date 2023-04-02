@@ -26,6 +26,11 @@ Route::get('/postman', function () {
 
 Route::post('/autenticacao', [UsuariosController::class, 'autenticacao']);
 
+Route::post('/home', [UsuariosController::class, 'home']);
+
+Route::get('/home', [UsuariosController::class, 'home']);
+
+
 #region Cadastro de Usuario
 Route::get('/cadastro_usuario', [UsuariosController::class, 'cadastro_usuario_get']);
 

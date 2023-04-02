@@ -45,7 +45,7 @@
 					</div>
 
                     <div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="nome"  placeholder="Nome">
+						<input class="input100" type="text" name="name"  placeholder="Nome">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -53,7 +53,7 @@
 					</div>
 
                     <div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="perfil"  placeholder="perfil">
+						<input class="input100" type="text" name="profile"  placeholder="perfil">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>

@@ -2,87 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\usuarios;
-use DB;
-use Crypt;
-use Illuminate\Auth\SessionGuard;
-use Illuminate\Auth\EloquentUserProvider;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
+use Carbon\Carbon;
+use DB;
+use Hash;
+
 
 
 class UsuariosController extends Controller
 {
     #region Autenticação
-    public function autenticacao(Request $request)
-    {
-        
-        
-        //Recebendo dados do Formulario
-        $user = $request->input('email');
-        $pass = $request->input('pass');
-
-        $credenciais = $request->validate([
-            'email' => ['required','email'],
-            'senha' => ['required'],
-        ]);
-
-        try{
-        
-        //Verificando usuário no banco de dados
-        $users = DB::select('select * from db_usuarios where email = ?', [$user]);
-
-        if(Auth::attempt($credenciais)){
-            $request->session()->regenerate();
-            dd("Autenticado nessa bosta");
-            //return redirect('home');
-        }
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
-
-        }catch(Exception $e){
-            dd($e);
-            return $e;
-        }
-
-
-
-
+    public function autenticacao(Request $request )
+    {    
+        return redirect()->route('/home');
     }
     #endregion
 
     #region Cadastrando Usuário
     public function cadastro_usuario(Request $request)
     {
-       
         //Recebendo dados do Formulario
         $email = $request->input('email');
-        $nome = $request->input('nome');
-        $senha = $request->input('senha');
-        $perfil = $request->input('perfil');
-
-        $senhaCriptografada = encrypt($senha);
+        $name = $request->input('name');
+        $password = $request->input('password');
+        $profile = $request->input('profile');
         
         try{
             
-        $user = new usuarios;
+        $user = new User;
  
         $user->email = $request->email;
-        $user->nome = $request->nome;
-        $user->perfil = $request->perfil;
-        //$user->senha = $senhaCriptografada;
+        $user->name = $request->name;
+        $user->profile = $request->profile;
+        $user->password = Hash::make($password);
 
-        $user->fill([
-            'senha' => Crypt::encrypt($request->senha)
-        ])->save();
+        $user->save();
  
-        //$user->save();
-
         return view('index');
     
         }catch(Exception $e){
-            return "Erro yooo -> ".$e->getMessage();
+            return "Erro ao cadastrar o usuário -> ".$e->getMessage();
         }
 
     }
@@ -91,10 +53,22 @@ class UsuariosController extends Controller
     #region Renderizando tela de cadastro de usuário
     public function cadastro_usuario_get(Request $request)
     {
-        
         return view('cadastro_usuario/index');
-
     }
     #endregion
 
+    #region homepage
+    public function home(){
+        try{
+            $dataAtual = Carbon::now();
+            $hoje = Carbon::now()->format('Y-m-d');
+
+            $db_agenda = DB::table('db_agenda')->get();
+            
+            return view('home/index',['agenda' =>$db_agenda]);
+        }catch(Exception $e){
+            dd($e);
+        }
+    }
+    #endregion
 }

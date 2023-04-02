@@ -1,6 +1,6 @@
-@extends ('layout.index')
+@extends ('layouts.index')
 
-@section('title','Blanks Barbearia')
+@section('title','HMS - Home Page')
 
 @section('content')
 
@@ -16,6 +16,7 @@
                 <th scope='col'>Nome</th>
                 <th scope='col'>Horario</th>                
                 <th scope='col'>Status</th>                              
+                <th scope='col'>Número Quarto</th>                              
                 
         </thead>
         <tbody>
@@ -25,8 +26,9 @@
                 @foreach($agenda as $agenda) 
                 <td>{{$agenda->data}}</td>
                 <td>{{$agenda->nome}}</td>
-                <td>{{$agenda->hora}}:{{$agenda->minuto}}</td>
+                <td>{{$agenda->horario}}:{{$agenda->minuto}}</td>
                 <td>{{$agenda->status}}</td>
+                <td>{{$agenda->id_quarto}}</td>
 
                 </td>
                <!-- @endeach-->

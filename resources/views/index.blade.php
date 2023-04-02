@@ -30,7 +30,7 @@
 					<img src="images/hotel_logo.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" action="/autenticacao" method="post">
+				<form class="login100-form validate-form" action="/home" method="post">
 				@csrf
 					<span class="login100-form-title">
 						Member Login
@@ -45,7 +45,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" value="cdsr99" placeholder="Password">
+						<input class="input100" type="password" name="password" value="cdsr99" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -62,14 +62,7 @@
 						</span>
 						<a class="txt2" href="#">
 							Username / Password?
-						</a>
-					</div>
-
-					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
+						</a><br><br><br><br><br><br>
 					</div>
 				</form>
 			</div>
